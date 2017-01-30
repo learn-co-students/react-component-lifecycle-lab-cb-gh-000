@@ -16,14 +16,26 @@ class App extends React.Component {
     this.fetchTweets = this.fetchTweets.bind(this);
   }
 
-  // TODO: componentWillMount() 
 
-  // TODO: componentDidMount() 
+  componentWillMount() {
+     this.fetchTweets()
+  }
 
-  // TODO: componentWillUnmount()
 
-  // TODO: componentDidUpdate()
-  
+ componentDidMount() {
+   console.log("intervale stater")
+   this.startInterval()
+ }
+ componentWillUnmount() {
+   this.cleanUpInterval()
+ }
+
+
+componentDidUpdate(prevProps, prevState) {
+   let numberLsatTweet = this.state.latestTweets.length - prevState.latestTweets.length
+   this.updateChart(numberLsatTweet)
+}
+
   updateChart(numTweets) {
     update(numTweets);
   }
