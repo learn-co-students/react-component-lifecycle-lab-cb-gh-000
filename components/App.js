@@ -1,10 +1,10 @@
-import React from 'react';
-import TweetWall from './TweetWall';
+const React = require('react');
+const TweetWall = require('./TweetWall');
 
-import { getTweets }from '../lib/mockAPI';
-import { initialize, update } from '../lib/chart';
+const { getTweets } = require('../lib/mockAPI');
+const { initialize, update } = require('../lib/chart');
 
-export default class App extends React.Component {
+class App extends React.Component {
 
   constructor() {
     super();
@@ -16,13 +16,21 @@ export default class App extends React.Component {
     this.fetchTweets = this.fetchTweets.bind(this);
   }
 
-  // TODO: componentWillMount()
+  componentWillMount() {
+    this.fetchTweets();
+  }
 
-  // TODO: componentDidMount()
+  componentDidMount() {
+    this.startInterval();
+  }
 
-  // TODO: componentWillUnmount()
+  componentWillUnmount() {
+    this.cleanUpInterval();
+  }
 
-  // TODO: componentDidUpdate()
+  componentDidUpdate() {
+    this.updateChart(this.state.latestTweets.length);
+  }
 
   updateChart(numTweets) {
     update(numTweets);
@@ -49,3 +57,5 @@ export default class App extends React.Component {
     )
   }
 }
+
+module.exports = App;
