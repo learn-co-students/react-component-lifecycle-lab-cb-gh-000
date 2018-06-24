@@ -6,7 +6,7 @@
    the component lifecycle
 2. Build a small React application
 
-## Overview
+## Overvgiew
 
 In this lab, we're going to build our very own application - a dashboard which shows us tweets from Twitter based on a particular keyword in real time. The real Twitter API requires authentication which is quite complex and out of the scope of this course (feel free to read more about it [here](https://dev.twitter.com/oauth)). Thus, we will be using fake data from a mock API - that is, we will hardcode some past tweets and pretend the data is coming from the real Twitter API. Not to worry, this is a common practice in software engineering, especially at the early stages of a project or for testing.
 
